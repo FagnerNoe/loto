@@ -1,0 +1,139 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Caramel&family=Dancing+Script:wght@700&family=Great+Vibes&family=Lilita+One&family=Poppins:ital,wght@0,500;1,100&family=Shadows+Into+Light&display=swap');
+
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lilita One', sans-serif;
+}
+
+header {
+    text-align: center;
+    padding:8px;
+    background-image: linear-gradient(25deg,rgb(172, 15, 149),rgb(248, 29, 160));
+    box-shadow: 0px 6px 8px rgb(78, 73, 73);
+
+}
+
+header h1{
+    font-size: 2.5rem;
+    letter-spacing: 3px; 
+    color:rgba(255, 255, 255, 0.959);
+    text-shadow:5px 10px 10px  rgb(42, 9, 48);    
+}
+
+main{
+    width: 100vw;
+    height: 100%;
+    padding: 10px 6px;
+}
+
+.resultados, .gerados{
+    text-align: center; 
+    height: auto;       
+}
+
+.resultados{
+    margin-bottom: 20px;
+}
+
+#concurso{
+    font-size: 24px;
+    background-color: rgba(163, 71, 163, 0.613);
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.resultados .gerados , h2{
+    color:rgb(105, 7, 100);
+    background-image: linear-gradient(45deg,rgb(252, 12, 180),rgb(254, 9, 254));
+    background-clip:text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 1px 10px rgba(14, 13, 13, 0.308);
+    font-size: 1.8rem;
+    margin-bottom: 3px;
+}
+
+
+.result_atual, .sua_sorte{
+    border: 1px solid rgb(83, 79, 79);
+    border-radius: 10px ;
+    width: 96%;
+    height: fit-content;
+    margin: 5px auto;
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns:repeat(5 , 1fr);
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    background-image: linear-gradient(-45deg,rgb(133, 6, 179),rgb(248, 44, 248));
+    box-shadow: 0px 3px 8px gray;
+}
+
+
+.dezena_resultado{
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0px 5px 5px rgb(86, 79, 79);
+    color: rgb(114, 7, 114);
+ }
+
+.sua_sorte{    
+    height:280px;
+    background-image: linear-gradient(15deg,rgb(246, 112, 3),rgb(253, 153, 13)) !important;    
+} 
+
+
+.dezena_gerada{
+    color:black;
+    background-color: rgb(253, 250, 253);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    line-height: 48px;
+    font-size: 24px;
+    margin: auto;
+}
+
+footer{
+    text-align: center;
+}
+
+.escolhas_geracao{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+
+}
+
+.geradores{
+    width:40%;
+    padding:15px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 24px;
+    box-shadow: 0px 5px 8px purple;  
+    border: none;  
+}
+
+ #btn7{
+    background-image: linear-gradient(45deg,rgb(49, 231, 149),rgb(84, 198, 137));
+    color:white;
+}
+
+
+
