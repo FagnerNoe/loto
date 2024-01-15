@@ -1,0 +1,26 @@
+{
+    "name": "LotoFagner",
+    "short_name": "LotoFagner",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "purple",
+    "theme_color": "purple",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "assets/imagem/loto.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "assets/imagem/loto.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "assests/imagem/loto.png",
+            "type": "image/png",
+            "sizes": "120x120"
+        }
+    ]
+}

@@ -59,8 +59,8 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                         if(repetidos.length == 9)*/
                             numeros.forEach((dezenas) => {
                             let dezena_gera = document.createElement("div");
-                            dezena_gera.classList.add("dezena_gerada");   
-                            dezena_gera.innerHTML = `${dezenas}`;
+                            dezena_gera.classList.add("dezena_gerada");                            
+                            dezena_gera.innerHTML = `${formatar_numero(dezenas)}`
     
                             quadro_sorte.appendChild(dezena_gera);                             
 
@@ -68,7 +68,12 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                         });
                     } 
                         
-                                    
+                   function formatar_numero(num){
+                        return num < 10 ? '0' + num : num
+
+                   }
+            
+                                   
                     
                    
                 
