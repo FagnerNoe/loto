@@ -4,7 +4,7 @@ const assets = [
     "/",
     "/index.html",
     "/assets/css/style.css/",
-    "assets/imagem/loto.png",
+    "/assets/imagem/loto.png",
     "/assets/js/scripts.js",
 
 ]
@@ -25,12 +25,5 @@ self.addEventListener("fetch", fetchEvent => {
     )
 });
 
-if('serviceWorker' in navigator){
-    window.addEventListener('load', function(){
-      navigator.serviceWorker.register('/serviceWorker.js')
-      .then(function(registration) {
 
-      });
-    })
-}
 
