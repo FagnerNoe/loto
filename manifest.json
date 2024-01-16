@@ -6,21 +6,27 @@
     "background_color": "purple",
     "theme_color": "purple",
     "orientation": "portrait-primary",
+    "form_factor": "wide",
     "icons": [
         {
-            "src": "assets/imagem/loto.png",
+            "src": "/assets/imagem/loto.png",
             "type": "image/png",
             "sizes": "72x72"
         },
         {
-            "src": "assets/imagem/loto.png",
+            "src": "/assets/imagem/loto.png",
             "type": "image/png",
             "sizes": "96x96"
         },
         {
-            "src": "assests/imagem/loto.png",
+            "src": "/assets/imagem/loto.png",
             "type": "image/png",
             "sizes": "120x120"
+        },
+        {
+            "src": "/assets/imagem/loto.png",
+            "type": "image/png",
+            "sizes": "1204x1204"
         }
     ]
 }

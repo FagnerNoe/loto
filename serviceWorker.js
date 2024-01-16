@@ -1,11 +1,11 @@
-const loto = "LotoFagner";
+const loto = "loto-fagner";
 const assets = [
 
     "/",
-    "index.html",
-    "assets/css/style.css/",
+    "/index.html",
+    "/assets/css/style.css/",
     "assets/imagem/loto.png",
-    "assets/js/scripts.js",
+    "/assets/js/scripts.js",
 
 ]
 
@@ -25,9 +25,12 @@ self.addEventListener("fetch", fetchEvent => {
     )
 });
 
-if("ServiceWorker" in navigator){
-    window.addEventListener("load", function(){
-      navigator.serviceWorker.register("/serviceWorker.js");
+if('serviceWorker' in navigator){
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('/serviceWorker.js')
+      .then(function(registration) {
+
+      });
     })
 }
 
