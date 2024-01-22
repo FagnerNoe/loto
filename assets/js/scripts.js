@@ -21,7 +21,8 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             
         })        
                  let num_concurso = document.getElementById("concurso");
-                 num_concurso.innerHTML = data.numero;
+                 num_concurso.innerHTML = `${data.dataApuracao} - ${data.numero}`;
+                    
                  
                  
                  console.log(dezenas_sorteadas);

@@ -43,6 +43,7 @@ main{
 #concurso{
     font-size: 24px;
     background-color: rgba(163, 71, 163, 0.613);
+    color:rgb(127, 15, 116);
     padding: 2px 8px;
     border-radius: 20px;
     margin-top: 10px;
@@ -66,7 +67,7 @@ main{
     width: 96%;
     height: fit-content;
     margin: 5px auto;
-    padding: 8px 10px;
+    padding: 15px 10px;
     display: grid;
     grid-template-columns:repeat(5 , 1fr);
     justify-content: space-evenly;
@@ -104,6 +105,7 @@ main{
     line-height: 48px;
     font-size: 24px;
     margin: auto;
+    box-shadow: 5px 5px 10px rgb(34, 33, 33);
 }
 
 footer{
