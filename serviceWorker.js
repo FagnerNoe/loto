@@ -2,10 +2,10 @@ const loto = "loto-fagner";
 const assets = [
 
     "/",
-    "/index.html",
-    "/assets/css/style.css/",
-    "/assets/imagem/loto.png/",
-    "/assets/js/scripts.js",
+    "index.html",
+    "assets/css/style.css/",
+    "assets/imagem/loto.png/",
+    "assets/js/scripts.js",
 
 ]
 
