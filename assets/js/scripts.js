@@ -1,36 +1,6 @@
 const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
-let installPrompt = null;
-const installButton = document.querySelector("#installl");
 
-    window.addEventListener("beforeinstallprompt", (e) => {
-        e.preventDefault();
-        installPrompt = e.target;
-        installButton.removeAttributeNode = "hidden"
-    });
-
-    installButton.addEventListener("click", async() => {
-        if (!installPrompt){
-            return;
-        }
-        const result = await installPrompt.prompt();
-        console.log(`Install prompt was: ${result.outcome}`);
-        disableInAppInstallPrompt();
-    });
-
-    function disableInAppInstallPrompt() {
-        installPrompt = null;
-        installButton.setAttribute("hidden", "");
-    }
-
-    window.addEventListener("appInstalled", () => {
-        disableInAppInstallPrompt();
-    });
-
-    function disableInAppInstallPrompt(){
-        installPrompt = null;
-        installButton.setAttribute("hidden", "");
-    }
    
     fetch(apiUrl)
     .then(response => response.json())
@@ -104,6 +74,38 @@ const installButton = document.querySelector("#installl");
                         return num < 10 ? '0' + num : num
 
                    }
+
+let installPrompt = null;
+const installButton = document.querySelector("#install");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        installPrompt = e.target;
+        installButton.removeAttributeNode = "hidden"
+    });
+
+    installButton.addEventListener("click", async() => {
+        if (!installPrompt){
+            return;
+        }
+        const result = await installPrompt.prompt();
+        console.log(`Install prompt was: ${result.outcome}`);
+        disableInAppInstallPrompt();
+    });
+
+    function disableInAppInstallPrompt() {
+        installPrompt = null;
+        installButton.setAttribute("hidden", "");
+    }
+
+    window.addEventListener("appInstalled", () => {
+        disableInAppInstallPrompt();
+    });
+
+    function disableInAppInstallPrompt(){
+        installPrompt = null;
+        installButton.setAttribute("hidden", "");
+    }
             
                                    
                 
