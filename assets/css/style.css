@@ -95,10 +95,6 @@ main{
     background-image: linear-gradient(15deg,rgb(246, 112, 3),rgb(253, 153, 13)) !important;    
 } 
 
-#install{
-    display:hidden;
-}
-
 .dezena_gerada{
     color:black;
     background-color: rgb(253, 250, 253);
