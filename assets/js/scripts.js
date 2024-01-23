@@ -79,14 +79,14 @@ let installPrompt = null;
 const installButton = document.querySelector('#install');
           
 
-    window.onload = () => prompt("Usar como Aplicativo" + installButton);
-    
+   
+
     window.addEventListener("beforeinstallprompt", (e) => {
         e.preventDefault();
         installPrompt = e.target;
-        installButton.removeAttribute("hidden");
+        installButton.removeAttribute('hidden');
     });
-
+       
     installButton.addEventListener("click", async () => {
         if (!installPrompt){
             return;
