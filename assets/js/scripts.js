@@ -77,8 +77,10 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
 let installPrompt = null;
 const installButton = document.querySelector('#install');
-    installButton.prompt = "Instalar Aplicativo ?"        
+          
 
+    window.onload = () => prompt("Usar como Aplicativo" + installButton);
+    
     window.addEventListener("beforeinstallprompt", (e) => {
         e.preventDefault();
         installPrompt = e.target;
