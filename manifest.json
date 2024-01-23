@@ -8,27 +8,27 @@
     "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "/assets/imagem/loto.png",
+            "src": "assets/imagem/loto.png",
             "type": "image/png",
             "sizes": "72x72"
         },
         {
-            "src": "/assets/imagem/loto.png",
+            "src": "assets/imagem/loto.png",
             "type": "image/png",
             "sizes": "96x96"
         },
         {
-            "src": "/assets/imagem/loto.png",
+            "src": "assets/imagem/loto.png",
             "type": "image/png",
             "sizes": "120x120"
         },
         {
-            "src": "/assets/imagem/loto.png",
+            "src": "assets/imagem/loto.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/assets/imagem/loto.png",
+            "src": "assets/imagem/loto.png",
             "type": "image/png",
             "sizes": "512x512"
         }
@@ -37,13 +37,13 @@
 
     "screenshots":[
         {
-            "src": "/assets/imagem/tela1.png",
+            "src": "assets/imagem/tela1.png",
             "type": "image/png",
             "sizes": "540x720",
             "form_factor": "narrow"
           },
           {
-            "src": "/assets/imagem/tela2.png",
+            "src": "assets/imagem/tela2.png",
             "type": "image/png",
             "sizes": "720x540",
             "form_factor": "wide"
