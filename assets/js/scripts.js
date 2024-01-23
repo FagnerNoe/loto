@@ -80,8 +80,8 @@ const installButton = document.querySelector("#install");
 
     window.addEventListener("beforeinstallprompt", (e) => {
         e.preventDefault();
-        installPrompt = e.target;
-        installButton.removeAttributeNode = "hidden"
+        installPrompt = e;
+        installButton.removeAttribute("hidden");
     });
 
     installButton.addEventListener("click", async() => {
@@ -98,7 +98,7 @@ const installButton = document.querySelector("#install");
         installButton.setAttribute("hidden", "");
     }
 
-    window.addEventListener("appInstalled", () => {
+    window.addEventListener("appinstalled", () => {
         disableInAppInstallPrompt();
     });
 
