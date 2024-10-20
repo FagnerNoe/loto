@@ -6,48 +6,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LotoFagner</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" href="./assets/imagem/trevo.png" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <link rel="manifest" href="manifest.json" />
     <script src="./assets/js/scripts.js" defer></script>
-    
+
 
 </head>
 
 <body>
     <header>
-        <h1>LotoFagner</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="./assets/imagem/trevo.png" width="30" />
+                    FN Resultados</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Calcular Rendimentos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Curiosidades</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <main>
-        <section class="resultados">
-            <h2>Ultimo Resultado</h2>
-                <span id="concurso"></span>  
-                         
-            <div class="result_atual">
 
+        <section id="container-resultados">
+
+            <div class="card">
+                <section class="resultados">
+                    <h2>Resultado</h2>
+                    <span id="concurso_atual"></span>
+
+                    <div class="result_atual">
+
+                    </div>
+                    <div class="rateio">
+
+                        <table class="table">
+
+                        </table>
+                    </div>
             </div>
-                
-           
         </section>
 
-        <section class="gerados">
-            <h2>Boa Sorte!!</h2>
-            <div class="sua_sorte">
-               
-            </div>
-        </section>
 
-        
 
 
     </main>
 
-    <footer>
-        <h2>Agora Vai !!</h2>
-        <section class="escolhas_geracao">
-            <button class="geradores" id="btn7" onClick = "gerar()" >Gerar Jogo</button>
-        
-        </section>
-    </footer>
+
+
+    <section class="opcoes_jogo">
+        <div class="sua_sorte">
+            <h4>Selecione Alguns Parâmetros</h4>
+            <section id="opcoes">
+                <div class="mb-3">
+                    <label for="" class="form-label">Repetidas do Anterior</label>
+                    <select class="form-select" name="" id="">
+                        <option value="">7</option>
+                        <option value="">8</option>
+                        <option selected>9</option>
+                        <option value="">10</option>
+                        <option value="">11</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Ímpares</label>
+                    <select class="form-select" name="" id="">
+                        <option value="">6</option>
+                        <option value="">7</option>
+                        <option selected>8</option>
+                        <option value="">9</option>
+                        <option value="">10</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Números Fibonacci</label>
+                    <select class="form-select" name="" id="">
+                        <option value="">3</option>
+                        <option selected>4</option>
+                        <option value="">5</option>
+                        <option value="">6</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Números na Moldura</label>
+                    <select class="form-select" name="" id="">
+                        <option value="">8</option>
+                        <option value="">9</option>
+                        <option selected>10</option>
+                        <option value="">11</option>
+                        <option value="">12</option>
+                    </select>
+                </div>
+
+            </section>
+            <div class="aleatorio">
+                <button id="btn-aleatorio" onclick="aleatoriedade()" type="button">Numeros Aleatórios</button>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="" id="qtd_jogos" class="form-label">Quantidade de Jogos pra Gerar</label>
+                <select class="form-select" name="" id="">
+                    <option value="">1</option>
+                    <option value="">5</option>
+                    <option selected>10</option>
+                    <option value="">20</option>
+                    <option value="">50</option>
+                    <option value="">100</option>
+                </select>
+            </div>
+        </div>
+    </section>
+    <section class="escolhas_geracao">
+        <button class="geradores" id="btn7" onClick="gerar()">Gerar Jogos</button>
+    </section>
+    <section class="jogos_gerados">
+
+
+    </section>
+
 
 </body>
 

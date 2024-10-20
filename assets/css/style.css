@@ -11,9 +11,10 @@
 }
 
 header {
-    text-align: center;
-    padding:8px;
-    background-image: linear-gradient(25deg,rgb(172, 15, 149),rgb(248, 29, 160));
+   
+    
+    
+    background-image: linear-gradient(25deg,rgb(248, 120, 229),rgb(189, 17, 183));
     box-shadow: 0px 6px 8px rgb(78, 73, 73);
 
 }
@@ -31,7 +32,9 @@ main{
     padding: 10px 6px;
 }
 
-.resultados, .gerados{
+
+
+.resultados, .opcoes_jogo{
     text-align: center; 
     height: auto;       
 }
@@ -40,29 +43,30 @@ main{
     margin-bottom: 20px;
 }
 
-#concurso{
-    font-size: 24px;
-    background-color: rgba(163, 71, 163, 0.613);
-    color:rgb(127, 15, 116);
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-top: 10px;
-}
 
-.resultados .gerados , h2{
-    color:rgb(105, 7, 100);
-    background-image: linear-gradient(45deg,rgb(252, 12, 180),rgb(254, 9, 254));
-    background-clip:text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+.resultados .opcoes_jogo , h2{    
     text-shadow: 0px 1px 10px rgba(14, 13, 13, 0.308);
     font-size: 1.8rem;
     margin-bottom: 3px;
 }
 
+.card{
+    width: 300px;
+}
 
-.result_atual, .sua_sorte{
-    border: 1px solid rgb(83, 79, 79);
+.rateio{
+   height: 225px;
+}
+
+#container-resultados{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;    
+}
+
+
+.result_atual{    
     border-radius: 10px ;
     width: 96%;
     height: fit-content;
@@ -90,10 +94,76 @@ main{
     color: rgb(114, 7, 114);
  }
 
-.sua_sorte{    
-    height:280px;
-    background-image: linear-gradient(15deg,rgb(246, 112, 3),rgb(253, 153, 13)) !important;    
+
+.opcoes_jogo{
+    display: flex;
+    justify-content: center;
+}
+.sua_sorte{
+    margin-top: 30px;
+     width: 380px;
+     box-shadow: 0px 3px 5px rgba(128, 0, 128, 0.541);
+     height:auto;
+     padding: 10px;
+     border-radius: 8px;
+     border: 1px solid rgba(158, 37, 169, 0.761);
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly; 
+       
 } 
+
+#opcoes{
+    border: 1px solid rgba(128, 128, 128, 0.16);
+    border-radius: 8px;   
+    padding: 10px; 
+}
+
+.mb-3{    
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-select{
+    width: 75px !important;
+    height: 45px !important;
+    margin-left: 10px;
+    padding: 5px !important;
+}
+
+.form-label{
+    width:100%;
+    color:purple;
+    background-color: rgba(225, 108, 240, 0.25);
+    border-radius: 5px;
+    padding: 10px 8px;
+}
+
+.aleatorio{
+    height: 60px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+#btn-aleatorio{
+    color: white;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 8px rgb(62, 103, 240);
+    background-image: linear-gradient(45deg,rgb(167, 31, 240),rgb(0, 149, 255));
+}
+
+.esconder-opcoes{
+    display:none;
+}
+
+#qtd_jogos{
+    color: rgb(247, 243, 236);
+    background-color: rgb(177, 6, 177);
+}
 
 .dezena_gerada{
     color:black;
@@ -107,9 +177,6 @@ main{
     box-shadow: 5px 5px 10px rgb(34, 33, 33);
 }
 
-footer{
-    text-align: center;
-}
 
 .escolhas_geracao{
     width: 100%;
@@ -132,7 +199,7 @@ footer{
 }
 
  #btn7{
-    background-image: linear-gradient(45deg,rgb(49, 231, 149),rgb(84, 198, 137));
+    background-image: linear-gradient(45deg,rgb(152, 49, 231),rgb(239, 17, 213));
     color:white;
 }
 
