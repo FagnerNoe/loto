@@ -34,15 +34,15 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                             </thead>
                             <tbody>
                                 <tr class="faixa-principal">
-                                    <td>15</td>
+                                    <td class="faixa">15</td>
                                     <td>${data.listaRateioPremio[0].numeroDeGanhadores}</td>
-                                    <td>${data.listaRateioPremio[0].valorPremio}</td>
+                                    <td>${data.listaRateioPremio[0].valorPremio.toLocaleString('pt-BR')}</td>
 
                                 </tr>
                                 <tr class="segunda-faixa">
                                     <td>14</td>
                                     <td>${data.listaRateioPremio[1].numeroDeGanhadores}</td>
-                                    <td>${data.listaRateioPremio[1].valorPremio}</td>
+                                    <td>${data.listaRateioPremio[1].valorPremio.toLocaleString('pt-BR')}</td>
                                 </tr>
                                 <tr class="segunda-faixa">
                                     <td>13</td>
