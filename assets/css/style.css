@@ -139,13 +139,12 @@ main{
 }
 
 .aleatorio{
-    height: 60px;
-    
+    height: 60px;    
     display: flex;
     justify-content: center;
     align-items: center;}
 
-#btn-aleatorio{
+#botao_aleatorio{
     color: white;
     padding: 8px 20px;
     border-radius: 10px;
@@ -159,7 +158,7 @@ main{
     display:none;
 }
 
-#qtd_jogos{
+#qtd-jogos{
     color: rgb(247, 243, 236);
     background-color: rgb(177, 6, 177);
 }
@@ -174,6 +173,7 @@ main{
     margin: auto;
     line-height: 30px;
     text-align: center;
+    font-weight: 200;
     box-shadow: 5px 5px 10px rgb(214, 199, 215);
 }
 
@@ -199,7 +199,7 @@ main{
     flex-wrap: wrap;
 }
 
-.jogos_gerados{
+.jogos-gerados{
     width: 180px;
     height: 150px;
     padding: 10px;

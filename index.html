@@ -80,7 +80,7 @@
 
     <section class="opcoes_jogo">
         <div class="sua_sorte">
-            <h4>Selecione Alguns Parâmetros</h4>
+            <h4 id="titulo_opcoes">Selecione Alguns Parâmetros</h4>
             <section id="opcoes">
                 <div class="mb-3">
                     <label for="" class="form-label">Repetidas do Anterior</label>
@@ -124,20 +124,22 @@
 
             </section>
             <div class="aleatorio">
-                <button id="btn-aleatorio" onclick="aleatoriedade()" type="button">Numeros Aleatórios</button>
+                <button id="botao_aleatorio" onclick="aleatoriedade()" type="button">Jogo Aleatório
+
+                </button>
 
             </div>
 
 
             <div class="mb-3">
-                <label for="" id="qtd_jogos" class="form-label">Quantidade de Jogos pra Gerar</label>
-                <select class="form-select" name="" id="">
-                    <option value="">1</option>
-                    <option value="">5</option>
-                    <option selected>10</option>
-                    <option value="">20</option>
-                    <option value="">50</option>
-                    <option value="">100</option>
+                <label for="" id="qtd-jogos" class="form-label">Quantidade de Jogos pra Gerar</label>
+                <select class="form-select" name="escolha-quantidade" id="selecao-quantidade">
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option selected value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
                 </select>
             </div>
         </div>
@@ -147,15 +149,9 @@
     </section>
 
     <section id="container-gerados">
-        <div class="jogos_gerados"> </div>
-        <div class="jogos_gerados"> </div>
-        <div class="jogos_gerados"> </div>
-        <div class="jogos_gerados"> </div>
-        <div class="jogos_gerados"> </div>
-        <div class="jogos_gerados"> </div>
-        <div class="jogos_gerados"> </div>
-        <div class="jogos_gerados"> </div>
-        <div class="jogos_gerados"> </div>
+
+
+
     </section>
 
 </body>
