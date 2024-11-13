@@ -52,14 +52,15 @@ main{
 
 .card{
     width: 380px;
+    height: 620px !important;
 }
 
 .rateio{
-   height: 225px;
+   height: 210px;
 }
 
 #container-resultados{
-    margin-top: 30px;
+    margin-top: 15px;
     display: flex;
     justify-content: center;    
 }
@@ -93,11 +94,76 @@ main{
     color: rgb(114, 7, 114);
  }
 
+.info-proximo-concurso{
+    margin-top: 35px;
+    border-top:3px solid purple ;     
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-proximo-concurso p{
+    background-color: rgba(151, 57, 228, 0.759);
+    width: fit-content;
+    color: white;
+    padding: 3px 15px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    
+}
+
+.info-proximo-concurso h1{
+    color: rgb(80, 79, 79);
+    margin-right: 10px;
+}
+
+.info-proximo-concurso p:nth-last-of-type(1){
+    background-color: rgba(241, 211, 253, 0.813);    
+    color: purple;
+}
+
+#valor-proximo-concurso{
+    text-shadow: 0px 2px 8px rgba(197, 197, 197, 0.73);
+    color:rgb(27, 2, 41);
+}
+
 
 .opcoes_jogo{
     display: flex;
     justify-content: center;
 }
+
+#btn-titulo-gerador{
+    text-align: center;
+    margin: 0px auto;  
+    width: 80%;
+    padding: 10px; 
+    background-image: linear-gradient(125deg,rgb(92, 208, 243),rgb(130, 6, 157));   
+    border-radius: 15px;
+    box-shadow: 2px 8px 15px rgb(161, 101, 187);  
+    animation: pulsar 2000ms ease-in-out infinite; 
+    
+    
+    
+    animation-fill-mode: forwards;
+
+}
+
+
+
+@keyframes pulsar {
+     0%{transform: scale(1.0);}   
+    50%{transform: scale(1.1);}
+    }
+
+#btn-titulo-gerador a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
 .sua_sorte{
     margin-top: 30px;
      width: 380px;
@@ -164,7 +230,7 @@ main{
 }
 
 .dezena_gerada{
-    color:rgb(192, 19, 180);
+    color:rgb(104, 7, 98);
     background-color: rgb(253, 250, 253);
     border-radius: 50%;    
     height: 30px;

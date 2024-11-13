@@ -18,7 +18,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
         
         let quadro = document.querySelector(".result_atual"); 
         let tabela = document.querySelector(".table")
-        let num_concurso = document.getElementById("concurso_atual");
+        let numero_concurso = document.getElementById("concurso_atual");
         quadro.innerHTML = '';
         
         dezenas_sorteadas.forEach((item) => {            
@@ -67,11 +67,12 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             
         }) ;
                  
-                 num_concurso.innerHTML = `${data.dataApuracao} - ${data.numero}`;
+                 numero_concurso.innerHTML = `${data.dataApuracao} - ${data.numero}`;
                     
 
             localStorage.setItem('dezenas_sorteadas', JSON.stringify(dezenas_sorteadas)); 
             localStorage.setItem('num_concurso', data.numero); 
+            localStorage.setItem('data_concurso',JSON.stringify(data.dataApuracao));
             localStorage.setItem('premiacao',JSON.stringify(data.listaRateioPremio));
             localStorage.setItem('utlimaRequisicao', new Date().getTime());  
                  
@@ -95,9 +96,11 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             const dezenas_sorteadas = JSON.parse(localStorage.getItem('dezenas_sorteadas'));
             const num_concurso = localStorage.getItem('num_concurso'); 
             const premiacao = JSON.parse(localStorage.getItem('premiacao'));
+            const data_concurso = JSON.parse(localStorage.getItem('data_concurso')) ;
             let quadro = document.querySelector(".result_atual");
             let tabela = document.querySelector(".table");
-            let num_concurso_atual = document.querySelector("concurso_atual");
+            let num_concurso_atual = document.getElementById("concurso_atual");
+            
             quadro.innerHTML ='';
             
                 dezenas_sorteadas.forEach((item) => { 
@@ -105,7 +108,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                     dezena_result.classList.add("dezena_resultado"); 
                 dezena_result.innerHTML = `${item}`; 
                 
-                quadro.appendChild(dezena_result); });
+                quadro.appendChild(dezena_result);
 
                   tabela.innerHTML = `
                  <thead>
@@ -145,8 +148,8 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                             </tbody>`    ; 
             
         
-                 
-                 num_concurso_atual.innerHTML = `${num_concurso}`;
+                });
+                 num_concurso_atual.innerHTML = `${data_concurso} - ${num_concurso}`;
                 
     }else{
         fecthData();
