@@ -38,7 +38,7 @@
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Calcular Rendimentos</a>
+                            <a class="nav-link" href="assets/pages/calculadora.html">Calcular Rendimentos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Curiosidades</a>
@@ -71,10 +71,15 @@
                     <section class="info-proximo-concurso">
                         <p>Valor Estimado para o Próximo Concurso</p>
 
-                        <h1> R$ &nbsp;&nbsp;<span id="valor-proximo-concurso">4.300.000,00</span></h1>
-                        <p id="proximo-concurso">3244 &mdash;
-                            <span id="data-proximo-concurso">13/11/2024</span>
-                        </p>
+                        <h1> R$ &nbsp;&nbsp;<span id="valor-proximo-concurso"></span></h1>
+
+                        <div id="numero-data-concurso">
+                            <span id="numero-proximo-concurso"></span>&mdash;
+
+                            <span id="data-proximo-concurso"></span>
+
+                        </div>
+
                     </section>
             </div>
         </section>
@@ -154,7 +159,7 @@
         </div>
     </section>
     <section class="escolhas_geracao">
-        <button class="geradores" id="btn7" onClick="gerar()">Gerar Jogos</button>
+        <button class="geradores" id="btn7" onClick="gerar()"><a href="#container-gerados">Gerar Jogos</a></button>
     </section>
 
     <section id="container-gerados">
@@ -162,6 +167,8 @@
 
 
     </section>
+
+
 
 </body>
 

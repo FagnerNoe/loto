@@ -105,8 +105,8 @@ main{
 }
 
 .info-proximo-concurso p{
-    background-color: rgba(151, 57, 228, 0.759);
-    width: fit-content;
+    background-color: rgba(167, 82, 237, 0.598);
+    width: max-content;
     color: white;
     padding: 3px 15px;
     border-radius: 5px;
@@ -117,16 +117,22 @@ main{
 .info-proximo-concurso h1{
     color: rgb(80, 79, 79);
     margin-right: 10px;
+    font-size: 1.7rem;
 }
 
-.info-proximo-concurso p:nth-last-of-type(1){
-    background-color: rgba(241, 211, 253, 0.813);    
-    color: purple;
-}
+
 
 #valor-proximo-concurso{
     text-shadow: 0px 2px 8px rgba(197, 197, 197, 0.73);
     color:rgb(27, 2, 41);
+}
+
+#numero-data-concurso{
+    display: flex;  
+    padding: 3px 8px;
+    border-radius: 10px;
+    background-color: rgba(220, 96, 210, 0.808);
+    color: white;
 }
 
 
@@ -138,15 +144,12 @@ main{
 #btn-titulo-gerador{
     text-align: center;
     margin: 0px auto;  
-    width: 80%;
+    width: 320px;
     padding: 10px; 
     background-image: linear-gradient(125deg,rgb(92, 208, 243),rgb(130, 6, 157));   
     border-radius: 15px;
     box-shadow: 2px 8px 15px rgb(161, 101, 187);  
-    animation: pulsar 2000ms ease-in-out infinite; 
-    
-    
-    
+    animation: pulsar 2000ms ease-in-out infinite;     
     animation-fill-mode: forwards;
 
 }
@@ -255,7 +258,7 @@ main{
 }
 
 #container-gerados{
-    width: 96%;
+    width: 96%;    
     height: auto;
     display: flex;
     margin: 0 auto;
@@ -263,6 +266,12 @@ main{
     justify-content:space-evenly;
     align-items: flex-start;
     flex-wrap: wrap;
+}
+
+@media (min-width: 768px){
+    #container-gerados{
+        width: 50%;
+    }
 }
 
 .jogos-gerados{
@@ -277,6 +286,11 @@ main{
     border: 1px solid rgba(128, 128, 128, 0.238);
 }
 
+.selecionada{
+    background-color: rgb(120, 6, 120);
+}
+
+
 .geradores{
     width:50%;
     padding:10px;
@@ -289,8 +303,16 @@ main{
 
  #btn7{
     background-image: linear-gradient(45deg,rgb(152, 49, 231),rgb(239, 17, 213));
-    color:white;
+    width: 280px;
+    
 }
+
+#btn7 a{
+    color:white;
+    text-decoration: none;
+}
+
+
 
 
 

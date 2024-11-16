@@ -5,6 +5,8 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
 
 
+    let prox_concurso_numero = document.getElementById("numero-proximo-concurso");
+    let prox_concurso_data= document.getElementById("data-proximo-concurso");
 
    function fecthData(){
     fetch(apiUrl)
@@ -19,6 +21,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
         let quadro = document.querySelector(".result_atual"); 
         let tabela = document.querySelector(".table")
         let numero_concurso = document.getElementById("concurso_atual");
+        let valor_prox_concurso = document.getElementById("valor-proximo-concurso");
         quadro.innerHTML = '';
         
         dezenas_sorteadas.forEach((item) => {            
@@ -68,13 +71,20 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
         }) ;
                  
                  numero_concurso.innerHTML = `${data.dataApuracao} - ${data.numero}`;
-                    
+                 valor_prox_concurso.innerHTML = `${data.valorEstimadoProximoConcurso.toLocaleString('pt-BR')}` ;
+                 prox_concurso_numero.innerHTML = `${data.numeroConcursoProximo}`
+                 prox_concurso_data.innerHTML = `${data.dataProximoConcurso}`
+
+            
 
             localStorage.setItem('dezenas_sorteadas', JSON.stringify(dezenas_sorteadas)); 
             localStorage.setItem('num_concurso', data.numero); 
             localStorage.setItem('data_concurso',JSON.stringify(data.dataApuracao));
             localStorage.setItem('premiacao',JSON.stringify(data.listaRateioPremio));
-            localStorage.setItem('utlimaRequisicao', new Date().getTime());  
+            localStorage.setItem('utlimaRequisicao', new Date().getTime()); 
+            localStorage.setItem('valor_proximo_concurso',data.valorEstimadoProximoConcurso)
+            localStorage.setItem('numero_proximo_concurso', data.numeroConcursoProximo);
+            localStorage.setItem('data_proximo_concurso',JSON.stringify(data.dataProximoConcurso));
                  
                  
                   
@@ -97,9 +107,15 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             const num_concurso = localStorage.getItem('num_concurso'); 
             const premiacao = JSON.parse(localStorage.getItem('premiacao'));
             const data_concurso = JSON.parse(localStorage.getItem('data_concurso')) ;
+            const valor_proximo_concurso = JSON.parse(localStorage.getItem('valor_proximo_concurso'));
+            const data_prox_concurso = JSON.parse(localStorage.getItem('data_proximo_concurso'));
+            const numero_prox_concurso = localStorage.getItem('numero_proximo_concurso');
             let quadro = document.querySelector(".result_atual");
             let tabela = document.querySelector(".table");
             let num_concurso_atual = document.getElementById("concurso_atual");
+            let valor_estimado = document.getElementById("valor-proximo-concurso");
+            let prox_concurso_numero = document.getElementById("numero-proximo-concurso");
+            let prox_concurso_data= document.getElementById("data-proximo-concurso");
             
             quadro.innerHTML ='';
             
@@ -150,7 +166,9 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
         
                 });
                  num_concurso_atual.innerHTML = `${data_concurso} - ${num_concurso}`;
-                
+                valor_estimado.innerHTML = `${valor_proximo_concurso.toLocaleString('pt-BR')}`;
+                prox_concurso_numero.innerHTML = `${numero_prox_concurso}`;
+                prox_concurso_data.innerHTML = `${data_prox_concurso}`;
     }else{
         fecthData();
     }
@@ -164,6 +182,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             function limpar(){
             let quadro_sorte = document.getElementById('container-gerados');
             quadro_sorte.innerHTML = "";
+           
         }
 
             
@@ -175,6 +194,9 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                 let valor_selecionado = parseInt(escolha_quantidade_gerar.options[escolha_quantidade_gerar.selectedIndex].value);
                 console.log(valor_selecionado);
                 let quadro_sorte = document.getElementById("container-gerados");
+
+                  console.log(prox_concurso_data);
+            console.log(prox_concurso_numero);
                 
 
 
@@ -197,15 +219,23 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                        
                             numeros.forEach((dezenas) => {
                             let dezena_gera = document.createElement("div");
-                            dezena_gera.classList.add("dezena_gerada");                            
+                            dezena_gera.classList.add("dezena_gerada");                                                       
                             dezena_gera.innerHTML = `${formatar_numero(dezenas)}`
-
                             card_jogo.appendChild(dezena_gera);            
 
 
 
                         });
-                     
+                            card_jogo.addEventListener("click",() => {                                 
+                                card_jogo.classList.contains("selecionada")?
+                                card_jogo.classList.remove("selecionada") : card_jogo.classList.add("selecionada");
+                                    
+                                
+                                    
+                                
+                                            
+                                
+                            })
                             quadro_sorte.appendChild(card_jogo);
             
                    function formatar_numero(num){
@@ -213,8 +243,8 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
                    }
         }
+          
 
-            scroll.apply
 
                 }
                                    
