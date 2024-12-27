@@ -93,17 +93,17 @@
     <div id="btn-titulo-gerador" type="button"><a href="#opcoes">Gere seus Jogos e Boa Sorte!</a></div>
 
     <section class="opcoes_jogo">
-        <div class="sua_sorte">
+        <div class="sua_sorte ">
             <h4 id="titulo_opcoes">Selecione Alguns Parâmetros</h4>
             <section id="opcoes">
                 <div class="mb-3">
                     <label for="" class="form-label">Repetidas do Anterior</label>
-                    <select class="form-select" name="" id="">
-                        <option value="">7</option>
-                        <option value="">8</option>
-                        <option selected>9</option>
-                        <option value="">10</option>
-                        <option value="">11</option>
+                    <select class="form-select" name="repetidas" id="repetidas">
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option selected value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -149,9 +149,9 @@
                 <label for="" id="qtd-jogos" class="form-label">Quantidade de Jogos pra Gerar</label>
                 <select class="form-select" name="escolha-quantidade" id="selecao-quantidade">
                     <option value="1">1</option>
-                    <option value="3">3</option>
+                    <option selected value="3">3</option>
                     <option value="5">5</option>
-                    <option selected value="10">10</option>
+                    <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
                     <option value="100">100</option>
@@ -160,7 +160,8 @@
         </div>
     </section>
     <section class="escolhas_geracao">
-        <button class="geradores" id="btn7" onClick="gerar()"><a href="#container-gerados">Gerar Jogos</a></button>
+        <button class="geradores" id="btn7" onclick="gerar()"><a href="#container-gerados">Gerar
+                Jogos</a></button>
     </section>
 
 

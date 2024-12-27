@@ -7,15 +7,23 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
     let prox_concurso_numero = document.getElementById("numero-proximo-concurso");
     let prox_concurso_data= document.getElementById("data-proximo-concurso");
+    let btn_aleatorio = document.getElementById('opcoes');
+    let escolha_quantidade_gerar = document.getElementById("selecao-quantidade");
+    let valor_selecionado = parseInt(escolha_quantidade_gerar.options[escolha_quantidade_gerar.selectedIndex].value);
+    let selecao_repetidas_anterior = document.getElementById('repetidas');
+    let selecao_repetidas = parseInt(selecao_repetidas_anterior.options[selecao_repetidas_anterior.selectedIndex].value);
+   
+    
+    
 
-   function fecthData(){
+    function fecthData(){    
     fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
         
         console.log(data);
         
-         let dezenas_sorteadas = data.listaDezenas;
+        let dezenas_sorteadas = data.listaDezenas;
         
         
         let quadro = document.querySelector(".result_atual"); 
@@ -89,13 +97,17 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                  
                   
                  
-                }).catch(error => console.error('Erro ao pegar o concurso',error));
+                }
+                
+                ).catch(error => console.error('Erro ao pegar o concurso',error));
+                
+                
 
                 
    }
 
 //funcao pra verficiar se ja foi carregada e buscar dados 
-   function checarRequisicao() { 
+     function checarRequisicao() { 
     const ultimaRequisicao = localStorage.getItem('utlimaRequisicao'); 
     const horaAtual = new Date().getTime(); 
     const umaHora = 60 * 60 * 1000; 
@@ -117,6 +129,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             let prox_concurso_numero = document.getElementById("numero-proximo-concurso");
             let prox_concurso_data= document.getElementById("data-proximo-concurso");
             
+             
             quadro.innerHTML ='';
             
                 dezenas_sorteadas.forEach((item) => { 
@@ -169,9 +182,15 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                 valor_estimado.innerHTML = `${valor_proximo_concurso.toLocaleString('pt-BR')}`;
                 prox_concurso_numero.innerHTML = `${numero_prox_concurso}`;
                 prox_concurso_data.innerHTML = `${data_prox_concurso}`;
+                return dezenas_sorteadas;
+               
+
     }else{
-        fecthData();
-    }
+         fecthData(); 
+        
+    } 
+   
+   
    }
 
    checarRequisicao();
@@ -188,36 +207,47 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             
             
 
-        function gerar(dezenas_sorteadas){
-                limpar();
+     function gerar(){           
+             limpar(); 
+                const dezenas_do_sorteio = JSON.parse(localStorage.getItem('dezenas_sorteadas'));
                 let escolha_quantidade_gerar = document.getElementById("selecao-quantidade");
                 let valor_selecionado = parseInt(escolha_quantidade_gerar.options[escolha_quantidade_gerar.selectedIndex].value);
-                console.log(valor_selecionado);
+                let selecao_repetidas_anterior = document.getElementById('repetidas');
+                let selecao_repetidas = parseInt(selecao_repetidas_anterior.options[selecao_repetidas_anterior.selectedIndex].value);             
+               
+                
                 let quadro_sorte = document.getElementById("container-gerados");
 
-                  console.log(prox_concurso_data);
-            console.log(prox_concurso_numero);
-                
+               
+                          
 
-
-                for (let i = 0; i <valor_selecionado; i++){
-                let numeros = [];
-
-                while(numeros.length < 15){
-                    let numeros_gerados = Math.floor(Math.random( ) * 25) + 1;
-                    if(numeros.indexOf(numeros_gerados) === -1){
-                        numeros.push(numeros_gerados);
+                for (let i = 0; i <valor_selecionado; i++){ 
+                    let numeros = [];
+                if(!btn_aleatorio.classList.contains("esconder-opcoes")){
+                  numeros = filtrarParametros(dezenas_do_sorteio,selecao_repetidas);
+                  console.log(numeros);
+                    
+                }else{
+                    numeros = [];
+                    while(numeros.length < 15){
+                        let numeros_gerados = Math.floor(Math.random() * 25) + 1;
+                        if(numeros.indexOf(numeros_gerados) === -1){
+                            numeros.push(numeros_gerados);
                     }
-                }
-                        numeros.sort((a, b) => a - b);
+                }      
 
-                        /*let repetidos = dezenas_sorteadas.filter(valor => numeros.includes(valor));
-                        if(repetidos.length == 9)*/
+                }   
+                        numeros.sort((a, b) => a - b);
+                    
+
+                       
 
                         let card_jogo = document.createElement('div');
                         card_jogo.classList.add("jogos-gerados");
-                       
+                            
+                            
                             numeros.forEach((dezenas) => {
+                          
                             let dezena_gera = document.createElement("div");
                             dezena_gera.classList.add("dezena_gerada");                                                       
                             dezena_gera.innerHTML = `${formatar_numero(dezenas)}`
@@ -228,25 +258,44 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                         });
                             card_jogo.addEventListener("click",() => {                                 
                                 card_jogo.classList.contains("selecionada")?
-                                card_jogo.classList.remove("selecionada") : card_jogo.classList.add("selecionada");
-                                    
-                                
-                                    
-                                
-                                            
-                                
+                                card_jogo.classList.remove("selecionada") : card_jogo.classList.add("selecionada");                             
                             })
                             quadro_sorte.appendChild(card_jogo);
             
                    function formatar_numero(num){
-                        return num < 10 ? '0' + num : num
+                    num = parseInt(num,10);
+                    return num < 10 ? '0' + num : num;
+                       
+                   }         
+                   
+                    }}
+        
 
-                   }
+        function filtrarParametros(dezenas_do_sorteio, selecao_repetidas){
+            let numeros = [];
+            let repetidos = [];
+            console.log(dezenas_do_sorteio)
+                    while(repetidos.length < selecao_repetidas){
+                    let numero_repetido = dezenas_do_sorteio[Math.floor(Math.random() * dezenas_do_sorteio.length)];
+                    if(repetidos.indexOf(numero_repetido) === -1){
+                        repetidos.push(numero_repetido);
+                    }
         }
-          
-
-
+                    while(numeros.length < 15 - selecao_repetidas){
+                    let numeros_gerados = Math.floor(Math.random( ) * 25) + 1;
+                    if(numeros.indexOf(numeros_gerados) === -1 && repetidos.indexOf(numeros_gerados) === -1 && !dezenas_do_sorteio.map(Number).includes(numeros_gerados)){
+                        numeros.push(numeros_gerados);
+                    }
                 }
+
+                numeros = numeros.concat(repetidos);
+                console.log(repetidos);
+                
+                
+                return numeros;
+        }
+
+       
                                    
     function aleatoriedade(){
         let btn_aleatorio = document.getElementById('opcoes');
@@ -256,12 +305,14 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             btn_aleatorio.classList.remove("esconder-opcoes");
             titulo_opcoes.classList.remove("esconder-opcoes");
             nome_botao.innerHTML="Jogo Aleatório";
+          
 
         }else{
 
         btn_aleatorio.classList.add("esconder-opcoes");
         titulo_opcoes.classList.add("esconder-opcoes");
-        nome_botao.innerText="Escolher Paramêtros";
+
+        nome_botao.innerText="Escolher Parâmetros";
         }
     }       
                 
