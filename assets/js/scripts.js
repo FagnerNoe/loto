@@ -8,10 +8,6 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
     let prox_concurso_numero = document.getElementById("numero-proximo-concurso");
     let prox_concurso_data= document.getElementById("data-proximo-concurso");
     let btn_aleatorio = document.getElementById('opcoes');
-    let escolha_quantidade_gerar = document.getElementById("selecao-quantidade");
-    let valor_selecionado = parseInt(escolha_quantidade_gerar.options[escolha_quantidade_gerar.selectedIndex].value);
-    let selecao_repetidas_anterior = document.getElementById('repetidas');
-    let selecao_repetidas = parseInt(selecao_repetidas_anterior.options[selecao_repetidas_anterior.selectedIndex].value);
    
     
     

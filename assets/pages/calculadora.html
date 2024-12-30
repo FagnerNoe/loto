@@ -39,27 +39,65 @@
     <main>
 
         <div class="container-calculos">
+            <h3>Divisão do Prêmio</h3>
+            <div class="form-floating">
+                <input type="text" class="form-control" name="valor-premio" id="valor-premio" placeholder="" />
+                <label for="valor-investido">Valor do Prêmio</label>
+            </div>
+
+            <div class="form-taxa-juros">
+                <label for="quantidade-membros">Membros</label>
+                <input type="number" class="form-control" name="quantidade-membros" id="quantidade-membros"
+                    placeholder="3" />
+            </div>
+
+            <div class="valor-calculos">
+                <p><span id="valor-premio-dividido"></span></p>
+            </div>
+
             <h3>Quanto Renderia meu Prêmio ? </h3>
             <div class="form-floating">
-                <input type="number" class="form-control" name="valor-investido" id="valor-investido" placeholder="" />
+                <input type="text" class="form-control" name="valor-investido" id="valor-investido" placeholder="" />
                 <label for="valor-investido">Valor do Investimento</label>
             </div>
 
             <div class="form-taxa-juros">
                 <label for="" class="form-label">Taxa de Juros a.a</label>
-                <input type="text" class="form-control" name="" id="taxa-de-juros" value="7,8 %" />
-
+                <input type="text" class="form-control" name="" id="taxa-de-juros" placeholder="12 %" />
             </div>
 
 
 
 
+            <table class="table">
+                <tbody>
+                    <tr class="premio-tempo">
+                        <td class="tempo">1 Mês</td>
+                        <td id="um-mes"></td>
+                    </tr>
+                    <tr class="premio-tempo">
+                        <td class="tempo">6 Meses</td>
+                        <td id="seis-meses"></td>
+                    </tr>
+                    <tr class="premio-tempo">
+                        <td class="tempo">1 Ano</td>
+                        <td id="um-ano"></td>
+                    </tr>
+                    <tr class="premio-tempo">
+                        <td class="tempo">2 Anos</td>
+                        <td id="dois-anos"></td>
+                    </tr>
 
+            </table>
         </div>
-
-
-
     </main>
+
+    <footer>
+        <button type="button" class="botao-zerar">
+            Zerar
+        </button>
+
+    </footer>
 
 
 
