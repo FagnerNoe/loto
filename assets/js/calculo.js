@@ -23,13 +23,12 @@ valor_premio.addEventListener('input',(e) => {
     const total = premio / quantidade_de_membros.value;
     let valor_por_membro = document.getElementById('valor-premio-dividido');
     box_resultados.classList.add('show');    
-    valor_por_membro.innerHTML= total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-    
+    valor_por_membro.innerHTML= total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});    
    valor_investimento.value= total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     console.log(valor);
     console.log(quantidade_de_membros.value);
 
-    taxa_de_juros.value == '' ? taxa_anual = 12 : taxa_anual = taxa_de_juros.value;
+    taxa_de_juros.value == '' ? taxa_anual = 6 : taxa_anual = taxa_de_juros.value;
     converterJuros(taxa_anual);
 
     
@@ -42,14 +41,16 @@ quantidade_de_membros.addEventListener('input',(e) => {
 
     const premio = parseFloat(valor_premio.value.replace(/[^\d,-]/g, '').replace(',', '.')); 
     
-    const total = premio/membros;
+    
+
+    const total = premio/membros; 
     console.log(valor_premio.value);
     console.log(membros);
     let valor_por_membro = document.getElementById('valor-premio-dividido');      
     valor_por_membro.innerHTML= total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
      valor_investimento.value= total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
-       taxa_de_juros.value == '' ? taxa_anual = 12 : taxa_anual = taxa_de_juros.value;
+       taxa_de_juros.value == '' ? taxa_anual = 6 : taxa_anual = taxa_de_juros.value;
     converterJuros(taxa_anual);
 
     });
@@ -59,7 +60,7 @@ quantidade_de_membros.addEventListener('input',(e) => {
     valor = (valor/100).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});    
     e.target.value = valor;
 
-       taxa_de_juros.value == '' ? taxa_anual = 12 : taxa_anual = taxa_de_juros.value;
+       taxa_de_juros.value == '' ? taxa_anual = 6 : taxa_anual = taxa_de_juros.value;
     converterJuros(taxa_anual);
 
  });   
@@ -69,7 +70,7 @@ quantidade_de_membros.addEventListener('input',(e) => {
        
     
 
-       taxa_de_juros.value == '' ? taxa_anual = 12 : taxa_anual = taxa_de_juros.value;
+       taxa_de_juros.value == '' ? taxa_anual = 6 : taxa_anual = taxa_de_juros.value;
     converterJuros(taxa_anual);
 
  });
