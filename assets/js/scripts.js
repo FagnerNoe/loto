@@ -210,7 +210,13 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                 let valor_selecionado = parseInt(escolha_quantidade_gerar.options[escolha_quantidade_gerar.selectedIndex].value);
                 let selecao_repetidas_anterior = document.getElementById('repetidas');
                 let selecao_repetidas = parseInt(selecao_repetidas_anterior.options[selecao_repetidas_anterior.selectedIndex].value);             
-               
+                let impares = document.getElementById("impares");
+                let selecao_impares = parseInt(impares.options[impares.selectedIndex].value);
+                let fibonacci = document.getElementById("fibonacci");
+                let selecao_fibonacci = parseInt(fibonacci.options[fibonacci.selectedIndex].value);
+                let moldura = document.getElementById("moldura");
+                let selecao_moldura = parseInt(moldura.options[moldura.selectedIndex].value);
+
                 
                 let quadro_sorte = document.getElementById("container-gerados");
 
@@ -220,7 +226,8 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                 for (let i = 0; i <valor_selecionado; i++){ 
                     let numeros = [];
                 if(!btn_aleatorio.classList.contains("esconder-opcoes")){
-                  numeros = filtrarParametros(dezenas_do_sorteio,selecao_repetidas);
+                  numeros = filtrarParametros(dezenas_do_sorteio,selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura);
+                  
                   console.log(numeros);
                     
                 }else{
@@ -267,11 +274,15 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                     }}
         
 
-        function filtrarParametros(dezenas_do_sorteio, selecao_repetidas){
+        function filtrarParametros(dezenas_do_sorteio, selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura){
             let numeros = [];
             let repetidos = [];
+            let impares = [];
             console.log(dezenas_do_sorteio)
-                    while(repetidos.length < selecao_repetidas){
+            console.log(selecao_impares);
+            console.log(selecao_fibonacci);
+            console.log(selecao_moldura);
+                    while(repetidos.length < selecao_repetidas && impares.length < selecao_impares){
                     let numero_repetido = dezenas_do_sorteio[Math.floor(Math.random() * dezenas_do_sorteio.length)];
                     if(repetidos.indexOf(numero_repetido) === -1){
                         repetidos.push(numero_repetido);
