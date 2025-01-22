@@ -39,8 +39,8 @@ quantidade_de_membros.addEventListener('input',(e) => {
     let membros = e.target.value ;
     membros=="" ? membros = 1 : membros.value; 
 
-    const premio = parseFloat(valor_premio.value.replace(/[^\d,-]/g, '').replace(',', '.')); 
-    
+    let premio = parseFloat(valor_premio.value.replace(/[^\d,-]/g, '').replace(',', '.')); 
+ 
     
 
     const total = premio/membros; 
