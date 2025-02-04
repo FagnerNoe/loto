@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const resultado_atual = [1,2,4,5,8,10,11,12,13,16,19,20,22,24,25]
+    const resultado_atual = [1,2,4,5,8,10,11,12,13,16,19,21,22,24,25]
   
     const cards_salvos = JSON.parse(localStorage.getItem('jogo_salvo')) || [];
     
