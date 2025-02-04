@@ -40,7 +40,7 @@ main{
     border-radius: 10px; 
     box-shadow: 2px 2px 2px rgba(128, 128, 128, 0.593);
     padding: 10px 0px;
-    display: flex;
+    display: flex;    
     justify-content: space-around;
     align-items: center; 
     
@@ -52,8 +52,7 @@ main{
     display: flex;    
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;    
     gap: 0px 10px;
     
 }    
@@ -75,6 +74,10 @@ main{
     flex-direction: column;
     align-items: center;
     
+}
+
+.cor-acerto{
+    background-color: rgb(246, 236, 249);
 }
 
 @media (min-width: 768px){

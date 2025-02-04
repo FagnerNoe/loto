@@ -260,7 +260,23 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                         });
                             card_jogo.addEventListener("click",() => {                                 
                                 card_jogo.classList.contains("selecionada")?
-                                card_jogo.classList.remove("selecionada") : card_jogo.classList.add("selecionada");                             
+                                card_jogo.classList.remove("selecionada") : card_jogo.classList.add("selecionada");  
+
+                                let card_jogo_salvo = JSON.parse(localStorage.getItem('jogo_salvo')) || [];
+
+                                const card_salvo = {
+                                numeros: Array.from(card_jogo.querySelectorAll('.dezena_gerada')).map((dezena) => dezena.innerHTML),
+                                selecionada: card_jogo.classList.contains("selecionada")
+
+                            };
+                                card_jogo_salvo.push(card_salvo);
+
+                                if(card_jogo_salvo.length > 50){
+                                    card_jogo_salvo.shift(); //remover primeiro card
+                                }
+
+                            localStorage.setItem('jogo_salvo',JSON.stringify(card_jogo_salvo));    
+
                             })
                             quadro_sorte.appendChild(card_jogo);
             
@@ -279,51 +295,81 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             let impares = [];
             let fibonacci = [];
             let moldura = [];
+            let jogo_valido = false;
+
+            dezenas_do_sorteio = dezenas_do_sorteio.map(Number);
             console.log(dezenas_do_sorteio)
-            console.log(selecao_impares);
-            console.log(selecao_fibonacci);
-            console.log(selecao_moldura);
+            
+
+                    while(!jogo_valido){                   
+                        numeros = [];
+                        repetidos = [];
+                        impares = [];
+                        fibonacci = [];
+                        moldura = [];
+
                     while(repetidos.length < selecao_repetidas){                    
-                    let numero_repetido = dezenas_do_sorteio[Math.floor(Math.random() * dezenas_do_sorteio.length)];
-                    if(repetidos.indexOf(numero_repetido) === -1){
-                        repetidos.push(numero_repetido);
+                    let numero_repetido = dezenas_do_sorteio[Math.floor(Math.random() * dezenas_do_sorteio.length)];   
+                        if(repetidos.indexOf(numero_repetido) === -1){    //            
+                        repetidos.push(parseInt(numero_repetido));                    
                     }
                     }
 
-                    while(impares.length < selecao_impares){
+                  /* while(impares.length < selecao_impares){
                     let numeros_impares = Math.floor(Math.random() * 25) + 1;
-                    if(numeros_impares% 2 !== 0 && impares.indexOf(numeros_impares) === -1){ 
-                        impares.push(numeros_impares);                    
+                    if(numeros_impares% 2 !== 0 && impares.indexOf(numeros_impares) === -1){                         
+                            impares.push(numeros_impares);                    
                     }
-             }
-
+                    }
+                               
+                    const numeros_fibonacci = [1,2,3,5,8,13,21]; 
                     while(fibonacci.length < selecao_fibonacci){
-                        let numeros_fibonacci = [1,2,3,5,8,13,21]; 
-                        if (fibonacci.values(numeros_fibonacci)){
-                            fibonacci.push(numeros_fibonacci);
-                        }                          
-                    
+                        let numero_fibonacci = numeros_fibonacci[Math.floor(Math.random() * numeros_fibonacci.length)];
+                        if (fibonacci.indexOf(numero_fibonacci) === -1){
+                            fibonacci.push(numero_fibonacci);
+                        }          
                     }
+
+                    const numeros_moldura = [1,2,3,4,5,6,10,11,15,16,20,21,22,23,24,25]; 
+                    while(moldura.length < selecao_moldura){
+                         let numero_moldura = numeros_moldura[Math.floor(Math.random() * numeros_moldura.length)];
+                        if (moldura.indexOf(numero_moldura) === -1 ){ 
+                                moldura.push(numero_moldura);
+                        }          
+                    }*/
 
                     while(numeros.length < 15 - selecao_repetidas){
                     let numeros_gerados = Math.floor(Math.random( ) * 25) + 1;
-                    if(numeros.indexOf(numeros_gerados) === -1 && repetidos.indexOf(numeros_gerados) === -1 && !dezenas_do_sorteio.map(Number).includes(numeros_gerados)){
+                    if(numeros.indexOf(numeros_gerados) === -1  && repetidos.indexOf(numeros_gerados) === -1 && !dezenas_do_sorteio.map(Number).includes(numeros_gerados)){ {
                         numeros.push(numeros_gerados);
-                    }
                 }
-
+                    }
+                    }
                 numeros = numeros.concat(repetidos);
-                
+
+                 const contarImpares = (arr) => arr.filter(num => num % 2 !== 0).length;
+                 const contarFibonacci = (arr) => arr.filter(num => [1, 2, 3, 5, 8, 13, 21].includes(num)).length;
+                 const contarMoldura = (arr) => arr.filter(num => [1, 2, 3, 4, 5, 6, 10, 11, 15, 16, 20, 21, 22, 23, 24, 25].includes(num)).length;
+               
                 console.log(repetidos);
                 console.log(impares);
-                console.log(fibonacci);
+                console.log(contarFibonacci(numeros));
+                console.log(moldura);
                 
-            
-                
-                return numeros;
-        }
-
-       
+                //verificar se o jogo atende as selecoes
+               if(numeros.length === 15 && 
+               contarImpares(numeros) === selecao_impares &&
+               contarFibonacci(numeros) === selecao_fibonacci && 
+               contarMoldura(numeros) === selecao_moldura
+               )
+               {              
+                   jogo_valido = true;             
+          }  
+          
+          }
+             return numeros;
+        }  
+        
                                    
     function aleatoriedade(){
         let btn_aleatorio = document.getElementById('opcoes');
@@ -357,4 +403,4 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
         
     
     
-
+        
