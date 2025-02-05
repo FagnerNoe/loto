@@ -80,6 +80,22 @@ main{
     background-color: rgb(246, 236, 249);
 }
 
+.onze{
+    background: linear-gradient(45deg,rgba(42, 251, 217, 0.887),rgb(70, 165, 237));
+}
+.doze{
+    background: linear-gradient(45deg,rgba(251, 244, 32, 0.887),rgb(249, 183, 49));
+}
+.treze{
+    background: linear-gradient(45deg,rgba(252, 193, 57, 0.887),rgb(250, 88, 18));
+}
+.quatorze{
+    background: linear-gradient(45deg,rgba(137, 249, 76, 0.887),rgb(20, 243, 121));
+}
+.quinze{
+    background: linear-gradient(45deg,rgba(242, 79, 220, 0.887),rgb(169, 41, 242));
+}
+
 @media (min-width: 768px){
     #jogos-salvos{
         width: 60%;

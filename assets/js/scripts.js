@@ -1,7 +1,7 @@
 
 
 
-const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
+const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3310";
 
 
 
@@ -270,8 +270,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
                             };
                                 card_jogo_salvo.push(card_salvo);
-
-                                if(card_jogo_salvo.length > 50){
+                                if(card_jogo_salvo.length > 100){
                                     card_jogo_salvo.shift(); //remover primeiro card
                                 }
 
@@ -287,6 +286,61 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                    }         
                    
                     }}
+
+    let check_exclusao = document.getElementById("excluir-dezenas");
+    let selecao_dezenas_excluir = document.querySelector(".selecao-dezenas-excluir");
+    
+
+      check_exclusao.addEventListener('change', () => {
+        if (check_exclusao.checked) {
+            selecao_dezenas_excluir.style.display = 'flex';
+        } else {
+            selecao_dezenas_excluir.style.display = 'none';
+        }
+    
+   
+
+
+        
+    const lista_dezenas = document.getElementById("lista-dezenas");
+    const dezenas_selecionada_input = document.getElementById('dezenas-excluidas');
+    let dezenas_excluidas = [];
+
+    // Criar a lista de 25 números
+    for (let i = 1; i <= 25; i++) {
+        const listItem = document.createElement('li');
+        listItem.classList.add('list-group-item');
+        listItem.textContent = i;
+
+        listItem.addEventListener('click', () => {
+            const numero = listItem.textContent;
+            const index = dezenas_excluidas.indexOf(numero);
+                   
+
+            if (index === -1) {
+                // Selecionar a dezena
+                if (dezenas_excluidas.length < 5) {
+                    dezenas_excluidas.push(numero);
+                    listItem.classList.add('selected');
+
+                    console.log(dezenas_excluidas);
+                } else {
+                    alert('Você só pode selecionar até 5 dezenas.');
+                }
+            } else {
+                // Remover a dezena da seleção
+                dezenas_excluidas.splice(index, 1);
+                listItem.classList.remove('selected');
+            }
+
+            // Atualizar o campo de dezenas selecionadas
+            dezenas_selecionada_input.value = dezenas_excluidas.join(', ');
+        });
+
+        lista_dezenas.appendChild(listItem);
+    }  
+    });
+            
         
 
         function filtrarParametros(dezenas_do_sorteio, selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura){
@@ -368,7 +422,10 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
           
           }
              return numeros;
-        }  
+        } 
+
+       
+            
         
                                    
     function aleatoriedade(){

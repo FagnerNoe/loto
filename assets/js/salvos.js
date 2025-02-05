@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const resultado_atual = [2,3,4,5,6,9,10,11,12,14,17,19,20,22,24]
-  
+    const resultado_atual = [2,3,4,5,6,9,10,11,12,14,17,19,20,22,24];
     const cards_salvos = JSON.parse(localStorage.getItem('jogo_salvo')) || [];
     
 
@@ -10,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const container_dezenas = document.createElement("div");
         container_dezenas.classList.add("dezenas");
+
 
         let dezena_gera;
         
@@ -32,7 +32,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const numeros_iguais = numeros_gerados.filter(numero => resultado_atual.includes(numero));
         const quantidade_de_acertos = numeros_iguais.length;
 
-       
+       switch(quantidade_de_acertos){
+        case 11:
+            card_jogo.classList.add("onze");
+            break;
+        case 12:
+            card_jogo.classList.add("doze");
+            break;
+        case 13:
+            card_jogo.classList.add("treze");
+            break;
+        case 14:
+            card_jogo.classList.add("quatorze");
+            break;
+        case 15:
+            card_jogo.classList.add("quinze");
+            break;
+      
+       }
        
 
         const conferidos = document.createElement("div");
