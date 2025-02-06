@@ -306,7 +306,8 @@ main{
 }
 
 .list-group-item.selected {
-    background-color: rgb(213, 24, 213);  /* Cor de destaque para itens selecionados */
+    background-color: rgb(213, 24, 213);
+    color: white;  /* Cor de destaque para itens selecionados */
 }
 
 .exclusao-dezenas{

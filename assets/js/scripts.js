@@ -1,7 +1,7 @@
 
 
 
-const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3310";
+const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
 
 
@@ -199,7 +199,57 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3310";
            
         }
 
-            
+
+     let check_exclusao = document.getElementById("excluir-dezenas");
+     let selecao_dezenas_excluir = document.querySelector(".selecao-dezenas-excluir");
+    let dezenas_excluidas = [];
+
+    document.getElementById("excluir-dezenas").addEventListener("click",( ) => {
+      if (check_exclusao.checked) {
+            selecao_dezenas_excluir.style.display = 'flex';
+        } else {
+            selecao_dezenas_excluir.style.display = 'none';
+        }
+
+    const lista_dezenas = document.getElementById("lista-dezenas");
+    const dezenas_selecionada_input = document.getElementById('dezenas-excluidas');
+
+    // Criar a lista de 25 números
+    for (let i = 1; i <= 25; i++) {
+        const listItem = document.createElement('li');
+        listItem.classList.add('list-group-item');
+        listItem.textContent = i;
+
+        listItem.addEventListener('click', () => {
+            const numero = listItem.textContent;
+            const index = dezenas_excluidas.indexOf(numero);
+                   
+
+            if (index === -1) {
+                // Selecionar a dezena
+                if (dezenas_excluidas.length < 4) {
+                   dezenas_excluidas.push(numero);                  
+
+                    listItem.classList.add('selected');
+                    console.log(dezenas_excluidas);
+                } else {
+                    alert('Você só pode selecionar até 4 dezenas.');
+                }
+            } else {
+                // Remover a dezena da seleção
+                dezenas_excluidas.splice(index, 1);
+                listItem.classList.remove('selected');
+            }
+
+            // Atualizar o campo de dezenas selecionadas
+            dezenas_excluidas = dezenas_excluidas.sort((a,b) => a - b );
+            dezenas_selecionada_input.value = dezenas_excluidas.join(', ');
+        });
+
+        lista_dezenas.appendChild(listItem);
+    }      
+   
+}  );    
             
 
      function gerar(){           
@@ -215,19 +265,22 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3310";
                 let selecao_fibonacci = parseInt(fibonacci.options[fibonacci.selectedIndex].value);
                 let moldura = document.getElementById("moldura");
                 let selecao_moldura = parseInt(moldura.options[moldura.selectedIndex].value);
-
+                let excluidas = dezenas_excluidas ; 
+               
                 
                 let quadro_sorte = document.getElementById("container-gerados");
 
-               
+              
                           
 
                 for (let i = 0; i <valor_selecionado; i++){ 
                     let numeros = [];
                 if(!btn_aleatorio.classList.contains("esconder-opcoes")){
-                  numeros = filtrarParametros(dezenas_do_sorteio,selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura);
+
+                  numeros = filtrarParametros(dezenas_do_sorteio,excluidas,selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura);
                   
                   console.log(numeros);
+                 
                     
                 }else{
                     numeros = [];
@@ -287,73 +340,37 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3310";
                    
                     }}
 
-    let check_exclusao = document.getElementById("excluir-dezenas");
-    let selecao_dezenas_excluir = document.querySelector(".selecao-dezenas-excluir");
-    
-
-      check_exclusao.addEventListener('change', () => {
-        if (check_exclusao.checked) {
-            selecao_dezenas_excluir.style.display = 'flex';
-        } else {
-            selecao_dezenas_excluir.style.display = 'none';
-        }
-    
+ 
    
 
-
-        
-    const lista_dezenas = document.getElementById("lista-dezenas");
-    const dezenas_selecionada_input = document.getElementById('dezenas-excluidas');
-    let dezenas_excluidas = [];
-
-    // Criar a lista de 25 números
-    for (let i = 1; i <= 25; i++) {
-        const listItem = document.createElement('li');
-        listItem.classList.add('list-group-item');
-        listItem.textContent = i;
-
-        listItem.addEventListener('click', () => {
-            const numero = listItem.textContent;
-            const index = dezenas_excluidas.indexOf(numero);
-                   
-
-            if (index === -1) {
-                // Selecionar a dezena
-                if (dezenas_excluidas.length < 5) {
-                    dezenas_excluidas.push(numero);
-                    listItem.classList.add('selected');
-
-                    console.log(dezenas_excluidas);
-                } else {
-                    alert('Você só pode selecionar até 5 dezenas.');
-                }
-            } else {
-                // Remover a dezena da seleção
-                dezenas_excluidas.splice(index, 1);
-                listItem.classList.remove('selected');
-            }
-
-            // Atualizar o campo de dezenas selecionadas
-            dezenas_selecionada_input.value = dezenas_excluidas.join(', ');
-        });
-
-        lista_dezenas.appendChild(listItem);
-    }  
-    });
+      
+     
             
         
 
-        function filtrarParametros(dezenas_do_sorteio, selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura){
+         window.filtrarParametros = function(dezenas_do_sorteio,excluidas,selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura){
+                  
             let numeros = [];
             let repetidos = [];
             let impares = [];
             let fibonacci = [];
             let moldura = [];
             let jogo_valido = false;
-
-            dezenas_do_sorteio = dezenas_do_sorteio.map(Number);
-            console.log(dezenas_do_sorteio)
             
+
+
+            let todos_numeros = Array.from({length: 25 }, (_, i) => i + 1);
+            console.log(todos_numeros);
+            
+
+            todos_numeros = todos_numeros.filter(num => !excluidas.includes(num.toString())) ;
+            console.log(todos_numeros);
+
+           
+            
+            dezenas_do_sorteio = dezenas_do_sorteio.map(Number);
+            dezenas_do_sorteio = dezenas_do_sorteio.filter(num => !excluidas.includes(num.toString()));
+            console.log(dezenas_do_sorteio);
 
                     while(!jogo_valido){                   
                         numeros = [];
@@ -362,11 +379,13 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3310";
                         fibonacci = [];
                         moldura = [];
 
-                    while(repetidos.length < selecao_repetidas){                    
-                    let numero_repetido = dezenas_do_sorteio[Math.floor(Math.random() * dezenas_do_sorteio.length)];   
-                        if(repetidos.indexOf(numero_repetido) === -1){    //            
-                        repetidos.push(parseInt(numero_repetido));                    
-                    }
+                     while (repetidos.length < selecao_repetidas) {                    
+                        let numero_repetido;
+                        do {
+                             numero_repetido = dezenas_do_sorteio[Math.floor(Math.random() * dezenas_do_sorteio.length)];
+                            } while (excluidas.includes(numero_repetido.toString()) || repetidos.includes(numero_repetido));
+            
+                        repetidos.push(parseInt(numero_repetido));
                     }
 
                   /* while(impares.length < selecao_impares){
@@ -393,7 +412,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3310";
                     }*/
 
                     while(numeros.length < 15 - selecao_repetidas){
-                    let numeros_gerados = Math.floor(Math.random( ) * 25) + 1;
+                    let numeros_gerados = todos_numeros[Math.floor(Math.random( ) * todos_numeros.length)];
                     if(numeros.indexOf(numeros_gerados) === -1  && repetidos.indexOf(numeros_gerados) === -1 && !dezenas_do_sorteio.map(Number).includes(numeros_gerados)){ {
                         numeros.push(numeros_gerados);
                 }
@@ -414,7 +433,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3310";
                if(numeros.length === 15 && 
                contarImpares(numeros) === selecao_impares &&
                contarFibonacci(numeros) === selecao_fibonacci && 
-               contarMoldura(numeros) === selecao_moldura
+               contarMoldura(numeros) === selecao_moldura 
                )
                {              
                    jogo_valido = true;             

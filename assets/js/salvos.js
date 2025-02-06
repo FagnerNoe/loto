@@ -1,8 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const resultado_atual = [2,3,4,5,6,9,10,11,12,14,17,19,20,22,24];
+    const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
+    
+    
     const cards_salvos = JSON.parse(localStorage.getItem('jogo_salvo')) || [];
     
 
+
+    function fecthData(){    
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        
+        console.log(data);
+        
+         let dezenas_sorteadas = data.listaDezenas;
+         
+         let resultado_atual = dezenas_sorteadas;
+        
+         console.log(resultado_atual);
+
+         
     cards_salvos.forEach((cardData) => {    
         const card_jogo = document.createElement("div");
         card_jogo.classList.add("container-jogo-salvo");
@@ -20,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
               dezena_gera.innerHTML = numero;
               container_dezenas.appendChild(dezena_gera);        
 
-             if (resultado_atual.includes(Number(numero))) {
+             if (resultado_atual.includes(numero.toString())) {
                 dezena_gera.classList.add("cor-acerto");
             }
                 
@@ -28,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });  
         card_jogo.appendChild(container_dezenas);
         
-        const numeros_gerados = cardData.numeros.map(Number);
+        const numeros_gerados = cardData.numeros.map(String);
         const numeros_iguais = numeros_gerados.filter(numero => resultado_atual.includes(numero));
         const quantidade_de_acertos = numeros_iguais.length;
 
@@ -67,6 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
    
         
      } );
+
+    });
+    }
+
+    
+   fecthData();
+
 
 
     
