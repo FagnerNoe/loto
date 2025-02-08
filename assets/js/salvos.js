@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const botao_excluir = document.createElement('button');
         botao_excluir.type = 'button';
-        botao_excluir.innerHTML = '<img src="assets/imagem/lixeira.png"/>';
+        botao_excluir.innerHTML = '<i class="bx bx-trash bx-sm"></i>';
         botao_excluir.addEventListener('click', () => excluir(card_jogo,index));
 
 
