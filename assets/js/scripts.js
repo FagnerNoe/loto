@@ -265,6 +265,8 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                 let selecao_fibonacci = parseInt(fibonacci.options[fibonacci.selectedIndex].value);
                 let moldura = document.getElementById("moldura");
                 let selecao_moldura = parseInt(moldura.options[moldura.selectedIndex].value);
+                let quantidade_bilhete = document.getElementById("numeros-bilhete");
+                let selecao_quantidade_bilhetes = parseInt(quantidade_bilhete.options[quantidade_bilhete.selectedIndex].value);
                 let excluidas = dezenas_excluidas ; 
                
                 
@@ -277,14 +279,14 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                     let numeros = [];
                 if(!btn_aleatorio.classList.contains("esconder-opcoes")){
 
-                  numeros = filtrarParametros(dezenas_do_sorteio,excluidas,selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura);
+                  numeros = filtrarParametros(dezenas_do_sorteio,selecao_quantidade_bilhetes,excluidas,selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura);
                   
                   console.log(numeros);
                  
                     
                 }else{
                     numeros = [];
-                    while(numeros.length < 15){
+                    while(numeros.length < selecao_quantidade_bilhetes){
                         let numeros_gerados = Math.floor(Math.random() * 25) + 1;
                         if(numeros.indexOf(numeros_gerados) === -1){
                             numeros.push(numeros_gerados);
@@ -348,7 +350,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
             
         
 
-         window.filtrarParametros = function(dezenas_do_sorteio,excluidas,selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura){
+         window.filtrarParametros = function(dezenas_do_sorteio,selecao_quantidade_bilhetes,excluidas,selecao_repetidas,selecao_impares,selecao_fibonacci,selecao_moldura){
                   
             let numeros = [];
             let repetidos = [];
@@ -411,7 +413,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                         }          
                     }*/
 
-                    while(numeros.length < 15 - selecao_repetidas){
+                    while(numeros.length < selecao_quantidade_bilhetes - selecao_repetidas){
                     let numeros_gerados = todos_numeros[Math.floor(Math.random( ) * todos_numeros.length)];
                     if(numeros.indexOf(numeros_gerados) === -1  && repetidos.indexOf(numeros_gerados) === -1 && !dezenas_do_sorteio.map(Number).includes(numeros_gerados)){ {
                         numeros.push(numeros_gerados);
@@ -430,7 +432,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                 console.log(moldura);
                 
                 //verificar se o jogo atende as selecoes
-               if(numeros.length === 15 && 
+               if(numeros.length === selecao_quantidade_bilhetes && 
                contarImpares(numeros) === selecao_impares &&
                contarFibonacci(numeros) === selecao_fibonacci && 
                contarMoldura(numeros) === selecao_moldura 

@@ -318,6 +318,8 @@ main{
 
 input[type="checkbox"]:checked{
     background-color: purple !important; 
+    box-shadow: 0px 0px 10px purple !important;
+    border: none !important;
     
 }
 
