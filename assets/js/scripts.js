@@ -233,7 +233,7 @@ const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
                     listItem.classList.add('selected');
                     console.log(dezenas_excluidas);
                 } else {
-                    alert('Você só pode selecionar até 4 dezenas.');
+                    alert('Você pode selecionar até 4 dezenas !');
                 }
             } else {
                 // Remover a dezena da seleção
