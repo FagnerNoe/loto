@@ -1,4 +1,4 @@
-const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/3366";
+const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
 let prox_concurso_numero = document.getElementById("numero-proximo-concurso");
 let prox_concurso_data = document.getElementById("data-proximo-concurso");
