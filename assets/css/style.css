@@ -133,6 +133,11 @@ main{
     color: white;
 }
 
+#quantidade-par{
+    font-size: 10px;
+    color: grey;
+}
+
 
 .opcoes_jogo{
     display: flex;
@@ -152,7 +157,13 @@ main{
 
 }
 
-
+footer{
+    width: 100%;
+    padding: 5px;    
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
 
 @keyframes pulsar {
      0%{transform: scale(1.0);}   
@@ -336,6 +347,10 @@ input[type="checkbox"]:checked{
     border-radius: 5px;
     border: 0.5px solid rgba(128, 128, 128, 0.479); 
     text-align: center;    
+}
+
+#txt-salvar{
+    display: none;
 }
 
 .geradores{
