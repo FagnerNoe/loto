@@ -299,6 +299,8 @@ function gerar() {
   );
   let impares = document.getElementById("impares");
   let selecao_impares = parseInt(impares.options[impares.selectedIndex].value);
+  let primos = document.getElementById("primos");
+  let selecao_primos = parseInt(primos.options[primos.selectedIndex].value);
   let fibonacci = document.getElementById("fibonacci");
   let selecao_fibonacci = parseInt(
     fibonacci.options[fibonacci.selectedIndex].value
@@ -323,6 +325,7 @@ function gerar() {
         excluidas,
         selecao_repetidas,
         selecao_impares,
+        selecao_primos,
         selecao_fibonacci,
         selecao_moldura
       );
@@ -390,13 +393,14 @@ window.filtrarParametros = function (
   excluidas,
   selecao_repetidas,
   selecao_impares,
+  selecao_primos,
   selecao_fibonacci,
   selecao_moldura
 ) {
   let numeros = [];
   let repetidos = [];
   let impares = [];
-
+  let primos = [];
   let moldura = [];
   let jogo_valido = false;
 
@@ -475,6 +479,9 @@ window.filtrarParametros = function (
     numeros = numeros.concat(repetidos);
 
     const contarImpares = (arr) => arr.filter((num) => num % 2 !== 0).length;
+    const contarPrimos = (arr) =>
+      arr.filter((num) => [2, 3, 5, 7, 11, 13, 17, 19, 23].includes(num))
+        .length;
     const contarFibonacci = (arr) =>
       arr.filter((num) => [1, 2, 3, 5, 8, 13, 21].includes(num)).length;
     const contarMoldura = (arr) =>
@@ -484,6 +491,7 @@ window.filtrarParametros = function (
 
     console.log(repetidos);
     console.log(impares);
+    console.log(contarPrimos(numeros));
     console.log(contarFibonacci(numeros));
     console.log(moldura);
 
@@ -491,6 +499,7 @@ window.filtrarParametros = function (
     if (
       numeros.length === selecao_quantidade_bilhetes &&
       contarImpares(numeros) === selecao_impares &&
+      contarPrimos(numeros) === selecao_primos &&
       contarFibonacci(numeros) === selecao_fibonacci &&
       contarMoldura(numeros) === selecao_moldura
     ) {
