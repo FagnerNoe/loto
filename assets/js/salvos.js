@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
 
-  let premio11 = 6;
-  let premio12 = 12;
-  let premio13 = 30;
+  let premio11 = 7;
+  let premio12 = 14;
+  let premio13 = 35;
   let premio11ComDezesseis = 30;
   let premio12ComDezesseis = 120;
   let premio13ComDezesseis = 246;
