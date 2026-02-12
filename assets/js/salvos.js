@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(resultado_atual);
 
         cards_salvos.forEach((cardData, index) => {
-          valorJogo = cardData.numeros.length == 16 ? 48 : 3;
+          valorJogo = cardData.numeros.length == 17 ? 476 : 16 ? 56 : 3,5;
           investimento.push(valorJogo);
           const card_jogo = document.createElement("div");
           card_jogo.classList.add("container-jogo-salvo");
