@@ -1,7 +1,7 @@
 ## FNLoto - Gere jogos com parametros
-<img width="250" height="600" alt="Captura de tela 2026-04-04 001706" src="https://github.com/user-attachments/assets/45bbd940-ecd5-4548-8bc3-743ffaa9e90f" />
-<img width="250" height="600" alt="Captura de tela 2026-04-04 001350" src="https://github.com/user-attachments/assets/1e793670-f65a-4ae3-9308-b1b10746aa10" />
-<img width="250" height="600" alt="Captura de tela 2026-04-04 001436" src="https://github.com/user-attachments/assets/c0a378b6-c717-4fb3-8b26-0efa365b8e7c" />
+<img width="250" height="500" alt="Captura de tela 2026-04-04 001706" src="https://github.com/user-attachments/assets/45bbd940-ecd5-4548-8bc3-743ffaa9e90f" />
+<img width="250" height="500" alt="Captura de tela 2026-04-04 001350" src="https://github.com/user-attachments/assets/1e793670-f65a-4ae3-9308-b1b10746aa10" />
+<img width="250" height="500" alt="Captura de tela 2026-04-04 001436" src="https://github.com/user-attachments/assets/c0a378b6-c717-4fb3-8b26-0efa365b8e7c" />
 
 #### Descrição do Projeto 
 _Projeto desenvolvido na intenção de auxiliar apostadores de Loteria na modalidade Lotofacil a gerar jogos com alguns parametros que geralmente se repetem ao longo dos concursos..._
