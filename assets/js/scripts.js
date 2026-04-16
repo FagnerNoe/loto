@@ -1,4 +1,5 @@
-const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
+const apiUrl =
+  "https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil";
 
 let prox_concurso_numero = document.getElementById("numero-proximo-concurso");
 let prox_concurso_data = document.getElementById("data-proximo-concurso");
@@ -16,7 +17,7 @@ function fecthData() {
       let tabela = document.querySelector(".table");
       let numero_concurso = document.getElementById("concurso_atual");
       let valor_prox_concurso = document.getElementById(
-        "valor-proximo-concurso"
+        "valor-proximo-concurso",
       );
       quadro.innerHTML = "";
 
@@ -43,7 +44,7 @@ function fecthData() {
                                         .numeroDeGanhadores
                                     }</td>
                                     <td>${data.listaRateioPremio[0].valorPremio.toLocaleString(
-                                      "pt-BR"
+                                      "pt-BR",
                                     )}</td>
 
                                 </tr>
@@ -54,7 +55,7 @@ function fecthData() {
                                         .numeroDeGanhadores
                                     }</td>
                                     <td>${data.listaRateioPremio[1].valorPremio.toLocaleString(
-                                      "pt-BR"
+                                      "pt-BR",
                                     )}</td>
                                 </tr>
                                 <tr class="segunda-faixa">
@@ -64,7 +65,7 @@ function fecthData() {
                                         .numeroDeGanhadores
                                     }</td>
                                     <td>${data.listaRateioPremio[2].valorPremio.toFixed(
-                                      2
+                                      2,
                                     )}</td>
                                 </tr>
                                 <tr class="segunda-faixa">
@@ -74,7 +75,7 @@ function fecthData() {
                                         .numeroDeGanhadores
                                     }</td>
                                     <td>${data.listaRateioPremio[3].valorPremio.toFixed(
-                                      2
+                                      2,
                                     )}</td>
                                 </tr>
                                 <tr class="segunda-faixa">
@@ -84,7 +85,7 @@ function fecthData() {
                                         .numeroDeGanhadores
                                     }</td>
                                     <td>${data.listaRateioPremio[4].valorPremio.toFixed(
-                                      2
+                                      2,
                                     )}</td>
                                 </tr>
                             </tbody>`;
@@ -92,14 +93,14 @@ function fecthData() {
 
       numero_concurso.innerHTML = `${data.dataApuracao} - ${data.numero}`;
       valor_prox_concurso.innerHTML = `${data.valorEstimadoProximoConcurso.toLocaleString(
-        "pt-BR"
+        "pt-BR",
       )}`;
       prox_concurso_numero.innerHTML = `${data.numeroConcursoProximo}`;
       prox_concurso_data.innerHTML = `${data.dataProximoConcurso}`;
 
       localStorage.setItem(
         "dezenas_sorteadas",
-        JSON.stringify(dezenas_sorteadas)
+        JSON.stringify(dezenas_sorteadas),
       );
       localStorage.setItem("num_concurso", data.numero);
       localStorage.setItem("data_concurso", JSON.stringify(data.dataApuracao));
@@ -107,15 +108,15 @@ function fecthData() {
       localStorage.setItem("utlimaRequisicao", new Date().getTime());
       localStorage.setItem(
         "valor_proximo_concurso",
-        data.valorEstimadoProximoConcurso
+        data.valorEstimadoProximoConcurso,
       );
       localStorage.setItem(
         "numero_proximo_concurso",
-        data.numeroConcursoProximo
+        data.numeroConcursoProximo,
       );
       localStorage.setItem(
         "data_proximo_concurso",
-        JSON.stringify(data.dataProximoConcurso)
+        JSON.stringify(data.dataProximoConcurso),
       );
     })
     .catch((error) => console.error("Erro ao pegar o concurso", error));
@@ -131,26 +132,26 @@ function checarRequisicao() {
     //usa os dados armazenados const dezenas_sorteadas = JSON.parse(localStorage.getItem('dezenas_sorteadas')); let quadro = document.querySelector(".result_atual"); quadro.innerHTML = ''; // Limpa o quadro antes de adicionar novos elementos dezenas_sorteadas.forEach((item) => { let dezena_result = document.createElement("div"); dezena_result.classList.add("dezena_resultado"); dezena_result.innerHTML = `${item}`; quadro.appendChild(dezena_result); }); } else { // Se a última requisição foi feita há mais de 1 hora, faz uma nova requisição fetchData(); } } // Chama a função para verificar e buscar os dados checkAndFetchData();
 
     const dezenas_sorteadas = JSON.parse(
-      localStorage.getItem("dezenas_sorteadas")
+      localStorage.getItem("dezenas_sorteadas"),
     );
     const num_concurso = localStorage.getItem("num_concurso");
     const premiacao = JSON.parse(localStorage.getItem("premiacao"));
     const data_concurso = JSON.parse(localStorage.getItem("data_concurso"));
     const valor_proximo_concurso = JSON.parse(
-      localStorage.getItem("valor_proximo_concurso")
+      localStorage.getItem("valor_proximo_concurso"),
     );
     const data_prox_concurso = JSON.parse(
-      localStorage.getItem("data_proximo_concurso")
+      localStorage.getItem("data_proximo_concurso"),
     );
     const numero_prox_concurso = localStorage.getItem(
-      "numero_proximo_concurso"
+      "numero_proximo_concurso",
     );
     let quadro = document.querySelector(".result_atual");
     let tabela = document.querySelector(".table");
     let num_concurso_atual = document.getElementById("concurso_atual");
     let valor_estimado = document.getElementById("valor-proximo-concurso");
     let prox_concurso_numero = document.getElementById(
-      "numero-proximo-concurso"
+      "numero-proximo-concurso",
     );
     let prox_concurso_data = document.getElementById("data-proximo-concurso");
 
@@ -176,7 +177,7 @@ function checarRequisicao() {
                                     <td class="faixa">15</td>
                                     <td>${premiacao[0].numeroDeGanhadores}</td>
                                     <td>${premiacao[0].valorPremio.toLocaleString(
-                                      "pt-BR"
+                                      "pt-BR",
                                     )}</td>
 
                                 </tr>
@@ -184,35 +185,35 @@ function checarRequisicao() {
                                     <td>14</td>
                                     <td>${premiacao[1].numeroDeGanhadores}</td>
                                     <td>${premiacao[1].valorPremio.toLocaleString(
-                                      "pt-BR"
+                                      "pt-BR",
                                     )}</td>
                                 </tr>
                                 <tr class="segunda-faixa">
                                     <td>13</td>
                                     <td>${premiacao[2].numeroDeGanhadores}</td>
                                     <td>${premiacao[2].valorPremio.toFixed(
-                                      2
+                                      2,
                                     )}</td>
                                 </tr>
                                 <tr class="segunda-faixa">
                                     <td>12</td>
                                     <td>${premiacao[3].numeroDeGanhadores}</td>
                                     <td>${premiacao[3].valorPremio.toFixed(
-                                      2
+                                      2,
                                     )}</td>
                                 </tr>
                                 <tr class="segunda-faixa">
                                     <td>11</td>
                                     <td>${premiacao[4].numeroDeGanhadores}</td>
                                     <td>${premiacao[4].valorPremio.toFixed(
-                                      2
+                                      2,
                                     )}</td>
                                 </tr>
                             </tbody>`;
     });
     num_concurso_atual.innerHTML = `${data_concurso} - ${num_concurso}`;
     valor_estimado.innerHTML = `${valor_proximo_concurso.toLocaleString(
-      "pt-BR"
+      "pt-BR",
     )}`;
     prox_concurso_numero.innerHTML = `${numero_prox_concurso}`;
     prox_concurso_data.innerHTML = `${data_prox_concurso}`;
@@ -231,7 +232,7 @@ function limpar() {
 
 let check_exclusao = document.getElementById("excluir-dezenas");
 let selecao_dezenas_excluir = document.querySelector(
-  ".selecao-dezenas-excluir"
+  ".selecao-dezenas-excluir",
 );
 let dezenas_excluidas = [];
 
@@ -285,17 +286,17 @@ function gerar() {
   limpar();
 
   const dezenas_do_sorteio = JSON.parse(
-    localStorage.getItem("dezenas_sorteadas")
+    localStorage.getItem("dezenas_sorteadas"),
   );
   let escolha_quantidade_gerar = document.getElementById("selecao-quantidade");
   let valor_selecionado = parseInt(
     escolha_quantidade_gerar.options[escolha_quantidade_gerar.selectedIndex]
-      .value
+      .value,
   );
   let selecao_repetidas_anterior = document.getElementById("repetidas");
   let selecao_repetidas = parseInt(
     selecao_repetidas_anterior.options[selecao_repetidas_anterior.selectedIndex]
-      .value
+      .value,
   );
   let impares = document.getElementById("impares");
   let selecao_impares = parseInt(impares.options[impares.selectedIndex].value);
@@ -303,13 +304,13 @@ function gerar() {
   let selecao_primos = parseInt(primos.options[primos.selectedIndex].value);
   let fibonacci = document.getElementById("fibonacci");
   let selecao_fibonacci = parseInt(
-    fibonacci.options[fibonacci.selectedIndex].value
+    fibonacci.options[fibonacci.selectedIndex].value,
   );
   let moldura = document.getElementById("moldura");
   let selecao_moldura = parseInt(moldura.options[moldura.selectedIndex].value);
   let quantidade_bilhete = document.getElementById("numeros-bilhete");
   let selecao_quantidade_bilhetes = parseInt(
-    quantidade_bilhete.options[quantidade_bilhete.selectedIndex].value
+    quantidade_bilhete.options[quantidade_bilhete.selectedIndex].value,
   );
   let excluidas = dezenas_excluidas;
 
@@ -327,7 +328,7 @@ function gerar() {
         selecao_impares,
         selecao_primos,
         selecao_fibonacci,
-        selecao_moldura
+        selecao_moldura,
       );
 
       console.log(numeros);
@@ -361,7 +362,7 @@ function gerar() {
 
       const card_salvo = {
         numeros: Array.from(card_jogo.querySelectorAll(".dezena_gerada")).map(
-          (dezena) => dezena.innerHTML
+          (dezena) => dezena.innerHTML,
         ),
         selecionada: card_jogo.classList.contains("selecionada"),
       };
@@ -395,7 +396,7 @@ window.filtrarParametros = function (
   selecao_impares,
   selecao_primos,
   selecao_fibonacci,
-  selecao_moldura
+  selecao_moldura,
 ) {
   let numeros = [];
   let repetidos = [];
@@ -408,13 +409,13 @@ window.filtrarParametros = function (
   console.log(todos_numeros);
 
   todos_numeros = todos_numeros.filter(
-    (num) => !excluidas.includes(num.toString())
+    (num) => !excluidas.includes(num.toString()),
   );
   console.log(todos_numeros);
 
   dezenas_do_sorteio = dezenas_do_sorteio.map(Number);
   dezenas_do_sorteio = dezenas_do_sorteio.filter(
-    (num) => !excluidas.includes(num.toString())
+    (num) => !excluidas.includes(num.toString()),
   );
   console.log(dezenas_do_sorteio);
 
@@ -486,7 +487,9 @@ window.filtrarParametros = function (
       arr.filter((num) => [1, 2, 3, 5, 8, 13, 21].includes(num)).length;
     const contarMoldura = (arr) =>
       arr.filter((num) =>
-        [1, 2, 3, 4, 5, 6, 10, 11, 15, 16, 20, 21, 22, 23, 24, 25].includes(num)
+        [1, 2, 3, 4, 5, 6, 10, 11, 15, 16, 20, 21, 22, 23, 24, 25].includes(
+          num,
+        ),
       ).length;
 
     console.log(repetidos);

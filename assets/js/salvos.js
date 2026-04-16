@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const apiUrl = "https://api.guidi.dev.br/loteria/lotofacil/ultimo";
+  const apiUrl =
+    "https://servicebus2.caixa.gov.br/portaldeloterias/api/lotofacil";
 
   let premio11 = 7;
   let premio12 = 14;
@@ -33,7 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(resultado_atual);
 
         cards_salvos.forEach((cardData, index) => {
-          valorJogo = (cardData.numeros.length == 17 ) ? 476 : (cardData.numeros.length==16)?56:3,5;
+          ((valorJogo =
+            cardData.numeros.length == 17
+              ? 476
+              : cardData.numeros.length == 16
+                ? 56
+                : 3),
+            5);
           investimento.push(valorJogo);
           const card_jogo = document.createElement("div");
           card_jogo.classList.add("container-jogo-salvo");
@@ -59,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const numeros_gerados = cardData.numeros.map(String);
           const numeros_iguais = numeros_gerados.filter((numero) =>
-            resultado_atual.includes(numero)
+            resultado_atual.includes(numero),
           );
           const quantidade_de_acertos = numeros_iguais.length;
 
@@ -108,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
           botao_excluir.type = "button";
           botao_excluir.innerHTML = '<i class="bx bx-trash bx-sm"></i>';
           botao_excluir.addEventListener("click", () =>
-            excluir(card_jogo, index)
+            excluir(card_jogo, index),
           );
 
           conferidos.appendChild(botao_excluir);
